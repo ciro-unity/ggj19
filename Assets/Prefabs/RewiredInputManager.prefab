@@ -179,7 +179,7 @@ MonoBehaviour:
       _defaultKeyboardMaps:
       - _enabled: 1
         _categoryId: 0
-        _layoutId: 0
+        _layoutId: 1
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
       _defaultKeyboardMaps:
       - _enabled: 1
         _categoryId: 0
-        _layoutId: 0
+        _layoutId: 2
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 0
@@ -228,7 +228,7 @@ MonoBehaviour:
       _descriptiveName: 
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
-      _behaviorId: 0
+      _behaviorId: 1
       _userAssignable: 1
       _categoryId: 0
     - _id: 3
@@ -237,7 +237,7 @@ MonoBehaviour:
       _descriptiveName: 
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
-      _behaviorId: 0
+      _behaviorId: 1
       _userAssignable: 1
       _categoryId: 0
     - _id: 4
@@ -246,7 +246,7 @@ MonoBehaviour:
       _descriptiveName: 
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
-      _behaviorId: 0
+      _behaviorId: 1
       _userAssignable: 1
       _categoryId: 0
     - _id: 5
@@ -255,7 +255,7 @@ MonoBehaviour:
       _descriptiveName: 
       _positiveDescriptiveName: 
       _negativeDescriptiveName: 
-      _behaviorId: 0
+      _behaviorId: 1
       _userAssignable: 1
       _categoryId: 0
     - _id: 6
@@ -304,6 +304,29 @@ MonoBehaviour:
       _digitalAxisInstantReverse: 0
       _digitalAxisGravity: 3
       _digitalAxisSensitivity: 3
+      _mouseXYAxisMode: 0
+      _mouseOtherAxisMode: 0
+      _mouseXYAxisSensitivity: 1
+      _mouseXYAxisDeltaCalc: 0
+      _mouseOtherAxisSensitivity: 1
+      _customControllerAxisSensitivity: 1
+      _buttonDoublePressSpeed: 0.3
+      _buttonShortPressTime: 0.25
+      _buttonShortPressExpiresIn: 0
+      _buttonLongPressTime: 1
+      _buttonLongPressExpiresIn: 0
+      _buttonDeadZone: 0.5
+      _buttonDownBuffer: 0
+      _buttonRepeatRate: 30
+      _buttonRepeatDelay: 0
+    - _id: 1
+      _name: Instantaneous
+      _joystickAxisSensitivity: 1000
+      _digitalAxisSimulation: 1
+      _digitalAxisSnap: 1
+      _digitalAxisInstantReverse: 0
+      _digitalAxisGravity: 1000
+      _digitalAxisSensitivity: 1000
       _mouseXYAxisMode: 0
       _mouseOtherAxisMode: 0
       _mouseXYAxisSensitivity: 1
@@ -860,7 +883,7 @@ MonoBehaviour:
     playerIdCounter: 3
     actionIdCounter: 9
     actionCategoryIdCounter: 1
-    inputBehaviorIdCounter: 1
+    inputBehaviorIdCounter: 2
     mapCategoryIdCounter: 2
     joystickLayoutIdCounter: 2
     keyboardLayoutIdCounter: 3
