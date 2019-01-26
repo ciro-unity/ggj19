@@ -51,11 +51,11 @@ public class GameInputManager : Singleton<GameInputManager>
 
         if(rewiredPlayers[playerId].GetButtonDown(actionUp))
         {
-            digitalInput.x = 1;
+            digitalInput.y = 1;
         }
         else if(rewiredPlayers[playerId].GetButtonDown(actionDown))
         {
-            digitalInput.x = -1;
+            digitalInput.y = -1;
         }
 
         return digitalInput;
