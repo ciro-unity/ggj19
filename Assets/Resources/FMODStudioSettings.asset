@@ -16,7 +16,7 @@ MonoBehaviour:
   HasPlatforms: 0
   sourceProjectPath: BlockHouse\BlockHouse.fspro
   SourceProjectPathUnformatted: BlockHouse\BlockHouse.fspro
-  SourceBankPathUnformatted: Assets/StreamingAssets
+  SourceBankPathUnformatted: Assets\StreamingAssets
   AutomaticEventLoading: 1
   AutomaticSampleLoading: 0
   ImportType: 0
@@ -59,7 +59,5 @@ MonoBehaviour:
   - Platform: 2
     Value: 32
   Plugins: []
-  MasterBanks:
-  - Master Bank
-  Banks:
-  - Bank_of_block
+  MasterBanks: []
+  Banks: []

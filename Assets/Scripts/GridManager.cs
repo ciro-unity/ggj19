@@ -2,8 +2,8 @@
 
 public class GridManager : MonoBehaviour
 {
-    public static int gridWidth = 8;
-    public static int gridHeight = 16;
+    public static int gridWidth = 5;
+    public static int gridHeight = 10;
     public GameObject cellDebugPrefab;
 
     public bool[,] grid = new bool[gridWidth, gridHeight];
@@ -31,9 +31,12 @@ public class GridManager : MonoBehaviour
     {
         foreach (Vector2 block in pieceGrid.blockPositions)
         {
-            if (position.x + (int)block.x >= gridWidth || position.x + (int)block.x <= 0
+            Debug.Log("isInsideGrid function, block : " + block);
+            if (position.x + (int)block.x >= gridWidth || position.x + (int)block.x < 0
                 || position.y + (int)block.y <= 0 || position.y + (int)block.y >= gridHeight)
             {
+                Debug.Log("Is not inside grid");
+                Debug.Log(position.x + (int)block.x <= 0);
                 return false;
             }
         }
@@ -44,7 +47,7 @@ public class GridManager : MonoBehaviour
     {
         if (!IsInsideGrid(pieceGrid, position))
         {
-            Debug.Log("Is not inside grid");
+            //Debug.Log("Is not inside grid");
             Debug.Log(position);
             return false;
         }

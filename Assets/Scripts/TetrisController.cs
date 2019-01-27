@@ -26,72 +26,70 @@ public class TetrisController : MonoBehaviour
     void Update()
     {
         Vector2Int inputVector = GameInputManager.Instance.ReadPlayerTetrisPhaseMovement(playerId);
-        Debug.Log(inputVector);
         //Gets the state rotation of the piece grid
         PieceGrid pieceGrid = tetrisPiece.stateGrids[tetrisPiece.currentState];
-        //Getting the last position for gridupdate, to remove from the grid positions that were freed by the block
-        //and occupy the new positions according to the piece state
+
         Vector2Int position2D = ConvertV3toV2Int(tetrisBlock.transform.position);
-        Vector2Int lastPosition2D = ConvertV3toV2Int(tetrisBlock.transform.position - new Vector3(0, -1, 0));
         //Blocks move down by pressing the down key but also overtime
         if (inputVector.y == -1 || Time.time - fallCounter >= 1)
         {
             Debug.Log("Move down");
 
+            // Modify position
             if (gridManager.IsValidPosition(pieceGrid, position2D))
             {
                 Debug.Log("IsValid");
                 //As long as the movement is valid, we increment the position
-                //tetrisBlock.transform.position += new Vector3(0, -1, 0);
-                position2D += inputVector;
+                tetrisBlock.transform.position += new Vector3(0, -1, 0);
             }
             else
             {
                 Debug.Log("isNotValid");
                 //We update the grid once we reach an obstacle
                 gridManager.UpdateGridV2(pieceGrid, position2D);
+                enabled = false;
             }
-
             fallCounter = Time.time;
         }
 
         else if (inputVector.x == 1)
         {
+            Debug.Log("Move Right");
             // Modify position
-            //tetrisBlock.transform.position += new Vector3(1, 0, 0);
-            position2D += inputVector;
+            MoveTetrisBlockSideways(pieceGrid, position2D, new Vector3(1, 0, 0));
         }
 
-        else if (Input.GetKeyDown(KeyCode.LeftArrow))
+        else if (inputVector.x == -1)
         {
             Debug.Log("Move left");
             // Modify position
+            MoveTetrisBlockSideways(pieceGrid, position2D, new Vector3(-1, 0, 0));
+        }
+
+        else if (inputVector.y == 1)
+        {
+            // Modify rotation
             if (gridManager.IsValidPosition(pieceGrid, position2D))
             {
                 Debug.Log("IsValid");
-                //As long as the movement is valid, we increment the position
-                tetrisBlock.transform.position += new Vector3(-1, 0, 0);
+                tetrisBlock.transform.Rotate(0, 0, 90);
+
+                if (tetrisPiece.currentState == tetrisPiece.stateGrids.Length -1)
+                {
+                    Debug.Log("Current state == length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
+                    tetrisPiece.currentState = 0;
+                }
+                else if (tetrisPiece.currentState < tetrisPiece.stateGrids.Length -1)
+                {
+                    Debug.Log("Current state < length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
+                    tetrisPiece.currentState++;
+                }
             }
             else
             {
                 Debug.Log("isNotValid");
-                //We update the grid once we reach an obstacle
-                gridManager.UpdateGridV2(pieceGrid, position2D);
             }
-        }
-
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            // Modify rotation
-            tetrisBlock.transform.Rotate(0, 0, 90);
-            if(tetrisPiece.currentState != tetrisPiece.stateGrids.Length)
-            {
-                tetrisPiece.currentState++;
-            }
-            else
-            {
-                tetrisPiece.currentState = 0;
-            }
+            
         }
 
     }
@@ -113,5 +111,24 @@ public class TetrisController : MonoBehaviour
         newPiece.SetParent(spawn.transform);
 
         return newPiece;
+    }
+
+    public void MoveTetrisBlockSideways(PieceGrid pieceGrid, Vector2Int position2D, Vector3 moveDirection)
+    {
+        // Modify position
+        position2D.x += (int)moveDirection.x;
+        position2D.y += (int)moveDirection.y;
+        if (gridManager.IsValidPosition(pieceGrid, position2D))
+        {
+            Debug.Log("IsValid");
+            //As long as the movement is valid, we increment the position
+            tetrisBlock.transform.position += moveDirection;
+        }
+        else
+        {
+            Debug.Log("isNotValid");
+            //We update the grid once we reach an obstacle
+            tetrisBlock.transform.position = tetrisBlock.transform.position;
+        }
     }
 }
