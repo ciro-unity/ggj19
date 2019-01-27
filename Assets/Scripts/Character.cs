@@ -50,6 +50,9 @@ public class Character : MonoBehaviour
     private Vector2 inputVector; //cached input
     private PickupObject intersectedPickup = null, carriedPickup = null;
     private HomeBox intersectedHomeBox = null;
+    private Vector2 platformOffset = Vector2.zero;
+    private Transform movingPlatform = null;
+    private Vector3 movingPlatformLastPos;
     private float originalSpeed;
     private float speedReductionWhenCarrying = .8f;
 
@@ -89,12 +92,34 @@ public class Character : MonoBehaviour
         if(charState == CharacterState.Walking)
         {
             inputVector = input;
-            rigidbody2D.MovePosition(rigidbody2D.position + inputVector * speed * Time.fixedDeltaTime);
+
+            if(movingPlatform != null)
+            {
+                platformOffset = (Vector2)(movingPlatform.position - movingPlatformLastPos);
+                movingPlatformLastPos = movingPlatform.position;
+            }
+
+            rigidbody2D.MovePosition((rigidbody2D.position + inputVector * speed * Time.fixedDeltaTime) + platformOffset);
 
             //animator.SetBool(hashedWalking, inputVector.sqrMagnitude > .05f);
             animator.SetFloat(hashedHorizontal, inputVector.x);
             animator.SetFloat(hashedVertical, inputVector.y);
         }
+    }
+
+    public void Respawn(Vector3 newPos)
+    {
+        if(carriedPickup != null)
+        {
+            DropPickup();
+        }
+
+        intersectedPickup = null;
+        intersectedHomeBox = null;
+        movingPlatform = null;
+        movingPlatformLastPos = Vector2.zero;
+
+        rigidbody2D.MovePosition(newPos);
     }
 
 
@@ -249,6 +274,12 @@ public class Character : MonoBehaviour
                 intersectedHomeBox = coll.transform.parent.GetComponent<HomeBox>();
             }
         }
+
+        if(coll.gameObject.CompareTag("MovingPlatform"))
+        {
+            movingPlatform = coll.transform;
+            movingPlatformLastPos = movingPlatform.position;
+        }
     }
 
     private void OnTriggerExit2D(Collider2D coll)
@@ -268,6 +299,15 @@ public class Character : MonoBehaviour
             if(coll.transform.parent.GetComponent<HomeBox>().playerId == playerId)
             {
                 intersectedHomeBox = null;
+            }
+        }
+
+        if(coll.gameObject.CompareTag("MovingPlatform"))
+        {
+            if(coll.gameObject.transform == movingPlatform)
+            {
+                movingPlatform = null;
+                platformOffset = Vector2.zero;
             }
         }
     }
@@ -301,11 +341,6 @@ public class Character : MonoBehaviour
         switch(charState)
         {
             case CharacterState.Walking:
-                //Normal reduction of speed
-                // if(inputVector.sqrMagnitude <= walkDecayTreshold)
-                // {
-                //     rigidbody2D.velocity *= walkDecayAmount;
-                // }
                 break;
         }
     }

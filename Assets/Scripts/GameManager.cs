@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
     
     public ActionController actionController;
     public TetrisController[] tetrisControllers;
+    public Transform[] characterSpawnPoints;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        
+        RespawnCharacter(1);
     }
 
     private void Update()
@@ -71,5 +72,10 @@ public class GameManager : Singleton<GameManager>
         tetrisControllers[playerId].transform.DOMoveX(xOffset, .3f).SetEase(Ease.InOutBack);
         
         characters[playerId].StartActionMode();
+    }
+
+    public void RespawnCharacter(int playerId)
+    {
+        characters[playerId].Respawn(characterSpawnPoints[playerId].position);
     }
 }
