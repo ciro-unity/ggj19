@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Pickup
+  - HomeBox
   layers:
   - Default
   - TransparentFX
@@ -18,7 +19,7 @@ TagManager:
   - Buildings
   - Pickups
   - DodgingCharacters
-  - 
+  - TetrisElements
   - 
   - 
   - 
