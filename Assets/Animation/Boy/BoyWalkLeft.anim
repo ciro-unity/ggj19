@@ -22,7 +22,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
@@ -39,25 +39,25 @@ AnimationClip:
   m_PPtrCurves:
   - curve:
     - time: 0
-      value: {fileID: 21300000, guid: ed292a1b63e914a88b43491751a6bce0, type: 3}
+      value: {fileID: 21300000, guid: ac6537c8f13f94785a8a852a32019141, type: 3}
     - time: 0.083333336
-      value: {fileID: 21300000, guid: d171801c57bf640b5beaed24cef75b72, type: 3}
+      value: {fileID: 21300000, guid: 3f285ba16cdfd479f96bac3bc1eeaafe, type: 3}
     - time: 0.16666667
-      value: {fileID: 21300000, guid: 80e3501daf78e4fcd8a4e571b575065c, type: 3}
+      value: {fileID: 21300000, guid: eba602d65de33456e89473d7152975e1, type: 3}
     - time: 0.25
-      value: {fileID: 21300000, guid: 85a802f74355b4d868fef572d7a715b4, type: 3}
+      value: {fileID: 21300000, guid: 1c9c6eb758b2341b1bb57549ac12a624, type: 3}
     - time: 0.33333334
-      value: {fileID: 21300000, guid: 43c8aa5b16ef64431a06e89c3e0dfd18, type: 3}
+      value: {fileID: 21300000, guid: e00a3507cda01485f91655877afc3abf, type: 3}
     - time: 0.41666666
-      value: {fileID: 21300000, guid: 338088c010101468aa82a717d99eed8e, type: 3}
+      value: {fileID: 21300000, guid: d115fec3d439f4d008a16bed543e2334, type: 3}
     - time: 0.5
-      value: {fileID: 21300000, guid: ebb4dad17d0fe4a29aaf094e12317a56, type: 3}
+      value: {fileID: 21300000, guid: 5d90b5e41bea14e1cb41690a5858f50a, type: 3}
     - time: 0.5833333
-      value: {fileID: 21300000, guid: 008be8c28623340468e34c8764ae9e12, type: 3}
+      value: {fileID: 21300000, guid: 057fe6162a2a9491aa2afde0029ac0ea, type: 3}
     - time: 0.6666667
-      value: {fileID: 21300000, guid: e30760793aed14723bd8d4cfae811b12, type: 3}
+      value: {fileID: 21300000, guid: 4fb3145fe01c242c4b513afc9093f8c1, type: 3}
     - time: 0.75
-      value: {fileID: 21300000, guid: c7f986f80acf8462780012dd509adc33, type: 3}
+      value: {fileID: 21300000, guid: 858261e24a0f44cf39410577197112dc, type: 3}
     attribute: m_Sprite
     path: 
     classID: 212
@@ -84,16 +84,16 @@ AnimationClip:
       customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
-    - {fileID: 21300000, guid: ed292a1b63e914a88b43491751a6bce0, type: 3}
-    - {fileID: 21300000, guid: d171801c57bf640b5beaed24cef75b72, type: 3}
-    - {fileID: 21300000, guid: 80e3501daf78e4fcd8a4e571b575065c, type: 3}
-    - {fileID: 21300000, guid: 85a802f74355b4d868fef572d7a715b4, type: 3}
-    - {fileID: 21300000, guid: 43c8aa5b16ef64431a06e89c3e0dfd18, type: 3}
-    - {fileID: 21300000, guid: 338088c010101468aa82a717d99eed8e, type: 3}
-    - {fileID: 21300000, guid: ebb4dad17d0fe4a29aaf094e12317a56, type: 3}
-    - {fileID: 21300000, guid: 008be8c28623340468e34c8764ae9e12, type: 3}
-    - {fileID: 21300000, guid: e30760793aed14723bd8d4cfae811b12, type: 3}
-    - {fileID: 21300000, guid: c7f986f80acf8462780012dd509adc33, type: 3}
+    - {fileID: 21300000, guid: ac6537c8f13f94785a8a852a32019141, type: 3}
+    - {fileID: 21300000, guid: 3f285ba16cdfd479f96bac3bc1eeaafe, type: 3}
+    - {fileID: 21300000, guid: eba602d65de33456e89473d7152975e1, type: 3}
+    - {fileID: 21300000, guid: 1c9c6eb758b2341b1bb57549ac12a624, type: 3}
+    - {fileID: 21300000, guid: e00a3507cda01485f91655877afc3abf, type: 3}
+    - {fileID: 21300000, guid: d115fec3d439f4d008a16bed543e2334, type: 3}
+    - {fileID: 21300000, guid: 5d90b5e41bea14e1cb41690a5858f50a, type: 3}
+    - {fileID: 21300000, guid: 057fe6162a2a9491aa2afde0029ac0ea, type: 3}
+    - {fileID: 21300000, guid: 4fb3145fe01c242c4b513afc9093f8c1, type: 3}
+    - {fileID: 21300000, guid: 858261e24a0f44cf39410577197112dc, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
@@ -120,7 +120,7 @@ AnimationClip:
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0
+        value: 1
         inSlope: Infinity
         outSlope: Infinity
         tangentMode: 103
