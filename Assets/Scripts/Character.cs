@@ -114,7 +114,10 @@ public class Character : MonoBehaviour
             }
             else
             {
-                GameManager.Instance.StartTetrisMode(playerId);
+                GameManager.Instance.StartTetrisMode(playerId, carriedPickup.tetrisPiecePrefab);
+                Destroy(carriedPickup.gameObject);
+                speed = originalSpeed; //restore full speed
+                carriedPickup = null;
             }
         }
 

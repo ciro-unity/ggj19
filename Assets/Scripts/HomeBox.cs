@@ -5,4 +5,6 @@ using UnityEngine;
 public class HomeBox : MonoBehaviour
 {
     public int playerId;
+
+    
 }

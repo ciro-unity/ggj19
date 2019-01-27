@@ -5,9 +5,11 @@ public class TetrisController : MonoBehaviour
     float fallCounter = 0;
     public int playerId;
     private TetrisPiece tetrisPiece;
-    public GridManager gridManager;
-    public Transform tetrisBlock;
+    private GridManager gridManager;
+    private Transform tetrisBlock;
     public Transform spawn;
+
+    private bool isRunning = false;
 
     // Start is called before the first frame update
     void Awake()
@@ -15,21 +17,27 @@ public class TetrisController : MonoBehaviour
         gridManager = GetComponent<GridManager>();
     }
 
-    void Start()
+    public void StartTetrisMode(GameObject piece)
     {
-        tetrisBlock = SpawnBlock(tetrisBlock);
+        tetrisBlock = SpawnBlock(piece.transform);
         tetrisPiece = tetrisBlock.GetComponent<TetrisPiece>();
         GameInputManager.Instance.SetPlayerInputMode(playerId, 1);
+
+        isRunning = true;
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
+        if(!isRunning)
+            return;
+
+
         Vector2Int inputVector = GameInputManager.Instance.ReadPlayerTetrisPhaseMovement(playerId);
         //Gets the state rotation of the piece grid
         PieceGrid pieceGrid = tetrisPiece.stateGrids[tetrisPiece.currentState];
 
-        Vector2Int position2D = ConvertV3toV2Int(tetrisBlock.transform.position);
+        Vector2Int position2D = ConvertV3toV2Int(tetrisBlock.transform.localPosition);
         //Blocks move down by pressing the down key but also overtime
         if (inputVector.y == -1 || Time.time - fallCounter >= 1)
         {
@@ -40,14 +48,14 @@ public class TetrisController : MonoBehaviour
             {
                 Debug.Log("IsValid");
                 //As long as the movement is valid, we increment the position
-                tetrisBlock.transform.position += new Vector3(0, -1, 0);
+                tetrisBlock.transform.localPosition += new Vector3(0, -1, 0);
             }
             else
             {
                 Debug.Log("isNotValid");
                 //We update the grid once we reach an obstacle
-                gridManager.UpdateGridV2(pieceGrid, position2D);
-                enabled = false;
+                gridManager.UpdateGrid(pieceGrid, position2D);
+                EndTetrisMode();
             }
             fallCounter = Time.time;
         }
@@ -107,13 +115,13 @@ public class TetrisController : MonoBehaviour
 
     public Transform SpawnBlock(Transform tetrisBlock)
     {
-        Transform newPiece = Instantiate<Transform>(tetrisBlock, spawn.transform.position, Quaternion.identity);
+        Transform newPiece = Instantiate<Transform>(tetrisBlock, spawn.transform.localPosition, Quaternion.identity);
         newPiece.SetParent(spawn.transform);
 
         return newPiece;
     }
 
-    public void MoveTetrisBlockSideways(PieceGrid pieceGrid, Vector2Int position2D, Vector3 moveDirection)
+    private void MoveTetrisBlockSideways(PieceGrid pieceGrid, Vector2Int position2D, Vector3 moveDirection)
     {
         // Modify position
         position2D.x += (int)moveDirection.x;
@@ -122,13 +130,19 @@ public class TetrisController : MonoBehaviour
         {
             Debug.Log("IsValid");
             //As long as the movement is valid, we increment the position
-            tetrisBlock.transform.position += moveDirection;
+            tetrisBlock.transform.localPosition += moveDirection;
         }
         else
         {
             Debug.Log("isNotValid");
             //We update the grid once we reach an obstacle
-            tetrisBlock.transform.position = tetrisBlock.transform.position;
+            tetrisBlock.transform.localPosition = tetrisBlock.transform.localPosition;
         }
+    }
+
+    private void EndTetrisMode()
+    {
+        isRunning = false;
+        GameManager.Instance.EndTetrisMode(playerId);
     }
 }

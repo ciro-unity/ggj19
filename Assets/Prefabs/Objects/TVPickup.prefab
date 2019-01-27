@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3674206396808147383}
   - component: {fileID: 6490269149576454531}
   m_Layer: 10
-  m_Name: DiamondPickup
+  m_Name: TVPickup
   m_TagString: Pickup
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carrier: {fileID: 0}
+  tetrisPiecePrefab: {fileID: 15714334155268659, guid: 852a8225984af4313b14cc29518dbc30,
+    type: 3}
 --- !u!60 &3674206396808147383
 PolygonCollider2D:
   m_ObjectHideFlags: 0
