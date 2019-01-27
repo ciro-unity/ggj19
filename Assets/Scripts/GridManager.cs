@@ -64,19 +64,8 @@ public class GridManager : MonoBehaviour
         return true;
     }
 
-    //Deprecated
-    public void UpdateGrid(PieceGrid pieceGrid, Vector2Int position, Vector2Int lastPositionVector)
+    public void UpdateGrid(PieceGrid pieceGrid, Vector2Int position)
     {
-        // Remove old children from grid
-        foreach (Vector2 block in pieceGrid.blockPositions)
-        {
-            int vx = lastPositionVector.x + (int)(block.x);
-            int vy = lastPositionVector.y + (int)(block.y);
-            Debug.Log("Remove old");
-            Debug.Log("grid [" + vx + "," + vy + "] is : " + grid[vx, vy]);
-            grid[vx, vy] = false;
-        }
-
         // Add new children to grid
         foreach (Vector2 block in pieceGrid.blockPositions)
         {
@@ -88,16 +77,21 @@ public class GridManager : MonoBehaviour
         }
     }
 
-    public void UpdateGridV2(PieceGrid pieceGrid, Vector2Int position)
+    public int CountFilledBoxes(PieceGrid pieceGrid, Vector2Int position)
     {
+        int countFilledBlocks = 0;
         // Add new children to grid
-        foreach (Vector2 block in pieceGrid.blockPositions)
+        for (int i = 0; i < gridWidth; i++)
         {
-            int vx = position.x + (int)(block.x);
-            int vy = position.y + (int)(block.y);
-            Debug.Log("Add New");
-            Debug.Log("grid [" + vx + "," + vy + "] is : " + grid[vx, vy]);
-            grid[vx, vy] = true;
+            for (int j = 0; j < gridHeight; j++)
+            {
+                if(grid[gridWidth, gridHeight] == true)
+                {
+                    countFilledBlocks++;
+                }
+            }
         }
+
+        return countFilledBlocks;
     }
 }

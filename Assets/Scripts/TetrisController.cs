@@ -46,7 +46,7 @@ public class TetrisController : MonoBehaviour
             {
                 Debug.Log("isNotValid");
                 //We update the grid once we reach an obstacle
-                gridManager.UpdateGridV2(pieceGrid, position2D);
+                gridManager.UpdateGrid(pieceGrid, position2D);
                 enabled = false;
             }
             fallCounter = Time.time;
