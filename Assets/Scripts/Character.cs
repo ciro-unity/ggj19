@@ -108,6 +108,8 @@ public class Character : MonoBehaviour
         {
             DropPickup();
         }
+
+        //TODO: Use homebox and go into Tetris mode
     }
 
     private void PickupObject()
@@ -130,6 +132,7 @@ public class Character : MonoBehaviour
         carriedPickup.DroppedDown();
 
         //release the gameobject
+        carriedPickup.transform.localPosition = new Vector2(0f, 0f);
         carriedPickup.transform.SetParent(null, true);
 
         speed = originalSpeed; //restore full speed
