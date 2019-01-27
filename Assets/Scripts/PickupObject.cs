@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PickupObject : MonoBehaviour
 {
     public Character carrier;
     public GameObject tetrisPiecePrefab;
+
+    public UnityAction<PickupObject> OnPickedUp;
 
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
@@ -26,6 +29,8 @@ public class PickupObject : MonoBehaviour
         spriteRenderer.sortingOrder = 2;
         trigger.enabled = false;
         collider.enabled = false;
+
+        if(OnPickedUp != null) OnPickedUp.Invoke(this); //notifies the spawn manager
     }
 
     public void DroppedDown()
