@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 15714334155268657}
   - component: {fileID: 15714334155268658}
   - component: {fileID: 15714334155268656}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: TVTetris
   m_TagString: Untagged
   m_Icon: {fileID: 0}
