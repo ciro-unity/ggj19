@@ -180,6 +180,9 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 1
+      - _enabled: 0
+        _categoryId: 1
+        _layoutId: 1
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []
       _assignMouseOnStart: 0
@@ -197,6 +200,9 @@ MonoBehaviour:
       _defaultKeyboardMaps:
       - _enabled: 1
         _categoryId: 0
+        _layoutId: 2
+      - _enabled: 0
+        _categoryId: 1
         _layoutId: 2
       _defaultCustomControllerMaps: []
       _startingCustomControllers: []

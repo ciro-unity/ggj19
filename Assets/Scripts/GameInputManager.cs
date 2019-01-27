@@ -24,7 +24,7 @@ public class GameInputManager : Singleton<GameInputManager>
     public void SetPlayerInputMode(int playerId, int inputMode)
     {
         rewiredPlayers[playerId].controllers.maps.SetMapsEnabled(true, inputMode);
-        rewiredPlayers[playerId].controllers.maps.SetMapsEnabled(true, (inputMode+1)%2);
+        rewiredPlayers[playerId].controllers.maps.SetMapsEnabled(false, (inputMode+1)%2);
     }
 
     //Returns a Vector2 used for movement in the Action phase
