@@ -58,9 +58,10 @@ GameObject:
   - component: {fileID: 996392531129505510}
   - component: {fileID: 996392531129505505}
   - component: {fileID: 996392531129505511}
+  - component: {fileID: 5922798519258355337}
   m_Layer: 0
-  m_Name: Box
-  m_TagString: HomeBox
+  m_Name: HomeBox
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -166,3 +167,16 @@ PolygonCollider2D:
       - {x: 0.2073288, y: -0.008041573}
       - {x: 0.47732878, y: 0.08195843}
       - {x: 0.7573288, y: 0.25195843}
+--- !u!114 &5922798519258355337
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 996392531129505504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 268beab23358348f99b6a89e9186ec7f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playerId: 0
