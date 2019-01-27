@@ -5,6 +5,8 @@ using UnityEngine;
 public class PickupObject : MonoBehaviour
 {
     public Character carrier;
+    public GameObject tetrisPiecePrefab;
+
     private Rigidbody2D rigidbody2D;
     private SpriteRenderer spriteRenderer;
     private Collider2D trigger, collider;

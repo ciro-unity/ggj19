@@ -13,31 +13,31 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: 114211896688731642}
-  - {fileID: 114334175497212778}
-  - {fileID: 114612049765270972}
+  - {fileID: 114109009261414470}
+  - {fileID: 114516978080575658}
+  - {fileID: 114521748363536366}
   EditorEvents:
-  - {fileID: 114062440782209600}
-  - {fileID: 114457373128670412}
-  - {fileID: 114536642759656270}
-  - {fileID: 114315827075717964}
-  - {fileID: 114759761605820396}
-  - {fileID: 114852802115140234}
-  - {fileID: 114819109733804002}
-  - {fileID: 114767188443706232}
-  - {fileID: 114857971109172728}
-  - {fileID: 114966046652572214}
-  - {fileID: 114628532392077024}
-  - {fileID: 114581848127960238}
-  - {fileID: 114040531199563584}
-  - {fileID: 114828026581779634}
+  - {fileID: 114987634298089956}
+  - {fileID: 114926050969264422}
+  - {fileID: 114090798833960650}
+  - {fileID: 114869932117932984}
+  - {fileID: 114771000537744776}
+  - {fileID: 114168339313310670}
+  - {fileID: 114264410637144524}
+  - {fileID: 114381323494616656}
+  - {fileID: 114827419271084104}
+  - {fileID: 114525270885435574}
+  - {fileID: 114276188104724714}
+  - {fileID: 114534186647941130}
+  - {fileID: 114162341043343224}
+  - {fileID: 114025258961435552}
   MasterBanks:
-  - {fileID: 114612049765270972}
+  - {fileID: 114521748363536366}
   StringsBanks:
-  - {fileID: 114211896688731642}
-  stringsBankWriteTime: 636841825724114973
+  - {fileID: 114109009261414470}
+  stringsBankWriteTime: 636841843740000000
   cacheVersion: 3
---- !u!114 &114040531199563584
+--- !u!114 &114025258961435552
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,17 +49,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SoundDesign/Tetris_TurnBlock
-  guid: b6b2cae33bf47e41b178c0b0a4c32a5e
+  Path: event:/SoundDesign/Tetris_Off
+  guid: e7f084b6c2958f4a89618e914e5b4dd4
   Banks:
-  - {fileID: 114334175497212778}
+  - {fileID: 114516978080575658}
   IsStream: 0
   Is3D: 0
   IsOneShot: 1
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 454
+  Length: 545
+--- !u!114 &114039930924569638
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: End
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114051116818088284
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -101,7 +117,95 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 500
+  Length: 0
+--- !u!114 &114090798833960650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SoundDesign/TakeBlock
+  guid: 3a5a26c170946d4d8f759d2c7a01b1bb
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 240
+--- !u!114 &114109009261414470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: Assets/StreamingAssets/Master Bank.strings.bank
+  lastModified: 636841843740000000
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 1396
+  Exists: 1
+--- !u!114 &114162341043343224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SoundDesign/Tetris_TurnBlock
+  guid: b6b2cae33bf47e41b178c0b0a4c32a5e
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 454
+--- !u!114 &114168339313310670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SoundDesign/Dodge
+  guid: 62948bef7d699641a10430e1cbcb20f9
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 249
 --- !u!114 &114211896688731642
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -115,11 +219,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Assets\StreamingAssets\Master Bank.strings.bank
-  lastModified: 636841825724114973
+  lastModified: 636841538790000000
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 1396
+    Value: 1352
   Exists: 1
 --- !u!114 &114212290833052362
 MonoBehaviour:
@@ -144,6 +248,52 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 34321
+--- !u!114 &114264410637144524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SoundDesign/PutBlock
+  guid: d36f5c4910246543b02da7c0afd51e9f
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 240
+--- !u!114 &114276188104724714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SoundDesign/Tetris_Ground
+  guid: 66968b67172f6445898bbef18aabfb92
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 537
 --- !u!114 &114295975520110932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,11 +368,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: C:\Users\Yasha\Documents\GitHub\ggj19\Assets\StreamingAssets\Bank_of_block.bank
-  lastModified: 636841825724105003
+  lastModified: 636841538790000000
   LoadResult: 0
   FileSizes:
   - Name: 
-    Value: 2274880
+    Value: 2200896
   Exists: 1
 --- !u!114 &114350549160494698
 MonoBehaviour:
@@ -247,6 +397,29 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &114381323494616656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SoundDesign/Dash
+  guid: 88a16323b128a34a86824b9570979146
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 535
 --- !u!114 &114457373128670412
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -267,10 +440,10 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114722433723124076}
+  - {fileID: 114789333959922870}
   MinDistance: 0
   MaxDistance: 0
-  Length: 124444
+  Length: 115555
 --- !u!114 &114457834677704816
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -294,6 +467,25 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 0
+--- !u!114 &114516978080575658
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/cirocontinisio/UnityProjects/GGJ19/Assets/StreamingAssets/Bank_of_block.bank
+  lastModified: 636841843740000000
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 2274880
+  Exists: 1
 --- !u!114 &114520594736596732
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -313,6 +505,71 @@ MonoBehaviour:
   - Name: Desktop
     Value: 770
   Exists: 1
+--- !u!114 &114521748363536366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/cirocontinisio/UnityProjects/GGJ19/Assets/StreamingAssets/Master Bank.bank
+  lastModified: 636841615850000000
+  LoadResult: 0
+  FileSizes:
+  - Name: 
+    Value: 12474
+  Exists: 1
+--- !u!114 &114525270885435574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SoundDesign/BridgeDeploy
+  guid: c30ec431c459fe41a2c2eecdbc0caa7a
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 171
+--- !u!114 &114534186647941130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SoundDesign/Tetris_On
+  guid: 7ca335fd58137042acf8824e1d8a40f0
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 606
 --- !u!114 &114536642759656270
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -335,30 +592,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 240
---- !u!114 &114581848127960238
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/SoundDesign/Tetris_On
-  guid: 7ca335fd58137042acf8824e1d8a40f0
-  Banks:
-  - {fileID: 114334175497212778}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 606
+  Length: 0
 --- !u!114 &114612049765270972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -378,29 +612,6 @@ MonoBehaviour:
   - Name: 
     Value: 12474
   Exists: 1
---- !u!114 &114628532392077024
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Path: event:/SoundDesign/Tetris_Ground
-  guid: 66968b67172f6445898bbef18aabfb92
-  Banks:
-  - {fileID: 114334175497212778}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 0
-  MaxDistance: 0
-  Length: 537
 --- !u!114 &114684606653948390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -443,22 +654,6 @@ MonoBehaviour:
   - Name: Desktop
     Value: 12474
   Exists: 1
---- !u!114 &114722433723124076
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Name: End
-  Min: 0
-  Max: 1
-  Default: 0
 --- !u!114 &114759761605820396
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -504,7 +699,30 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 535
+  Length: 0
+--- !u!114 &114771000537744776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Jingle Victoire
+  guid: 4f8e2ad44f7c3149b06345dd6e95214e
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 4444
 --- !u!114 &114789333959922870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -553,7 +771,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: event:/SoundDesign/PutBlock
-  guid: d36f5c4910246543b02da7c0afd51e9f
+  guid: 7e98e0effe691249a3030cf9535d6c1b
   Banks:
   - {fileID: 114334175497212778}
   IsStream: 0
@@ -562,8 +780,8 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 240
---- !u!114 &114828026581779634
+  Length: 0
+--- !u!114 &114827419271084104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -575,17 +793,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: event:/SoundDesign/Tetris_Off
-  guid: e7f084b6c2958f4a89618e914e5b4dd4
+  Path: event:/Test
+  guid: 91ef1a1c7a06264d96e706eb18c0d6cc
   Banks:
-  - {fileID: 114334175497212778}
-  IsStream: 0
+  - {fileID: 114516978080575658}
+  IsStream: 1
   Is3D: 0
-  IsOneShot: 1
+  IsOneShot: 0
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 545
+  Length: 34321
 --- !u!114 &114852802115140234
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -608,7 +826,7 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 249
+  Length: 0
 --- !u!114 &114857971109172728
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -632,6 +850,53 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 34321
+--- !u!114 &114869932117932984
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Music_Menu
+  guid: 4a81e55c9c127b488dda4b6b95c887e9
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 11111
+--- !u!114 &114926050969264422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/Music/Music_InGame
+  guid: 2e9b3d3b88f83f44bca360f49d8276b4
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 1
+  Is3D: 0
+  IsOneShot: 0
+  Parameters:
+  - {fileID: 114039930924569638}
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 124444
 --- !u!114 &114948594252013788
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -677,4 +942,27 @@ MonoBehaviour:
   Parameters: []
   MinDistance: 0
   MaxDistance: 0
-  Length: 171
+  Length: 0
+--- !u!114 &114987634298089956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: event:/SoundDesign/Bumpe
+  guid: 28b3116721150f42bbfd5d9c393833e2
+  Banks:
+  - {fileID: 114516978080575658}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 0
+  MaxDistance: 0
+  Length: 500

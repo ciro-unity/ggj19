@@ -76,22 +76,4 @@ public class GridManager : MonoBehaviour
             grid[vx, vy] = true;
         }
     }
-
-    public int CountFilledBoxes(PieceGrid pieceGrid, Vector2Int position)
-    {
-        int countFilledBlocks = 0;
-        // Add new children to grid
-        for (int i = 0; i < gridWidth; i++)
-        {
-            for (int j = 0; j < gridHeight; j++)
-            {
-                if(grid[gridWidth, gridHeight] == true)
-                {
-                    countFilledBlocks++;
-                }
-            }
-        }
-
-        return countFilledBlocks;
-    }
 }

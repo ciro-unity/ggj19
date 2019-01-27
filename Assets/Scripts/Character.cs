@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class Character : MonoBehaviour
 {
@@ -48,6 +49,7 @@ public class Character : MonoBehaviour
     private Animator animator;
     private Vector2 inputVector; //cached input
     private PickupObject intersectedPickup = null, carriedPickup = null;
+    private HomeBox intersectedHomeBox = null;
     private float originalSpeed;
     private float speedReductionWhenCarrying = .8f;
 
@@ -106,8 +108,20 @@ public class Character : MonoBehaviour
         }
         else if(carriedPickup != null)
         {
-            DropPickup();
+            if(intersectedHomeBox == null)
+            {
+                DropPickup();
+            }
+            else
+            {
+                GameManager.Instance.StartTetrisMode(playerId, carriedPickup.tetrisPiecePrefab);
+                Destroy(carriedPickup.gameObject);
+                speed = originalSpeed; //restore full speed
+                carriedPickup = null;
+            }
         }
+
+        //TODO: Use homebox and go into Tetris mode
     }
 
     private void PickupObject()
@@ -119,7 +133,7 @@ public class Character : MonoBehaviour
 
         //parent and carry animation
         carriedPickup.transform.SetParent(this.transform, true);
-        carriedPickup.transform.localPosition = new Vector2(0f, 3f);
+        carriedPickup.transform.DOLocalMove(new Vector2(0f, 3f), .2f);
 
         speed = originalSpeed * speedReductionWhenCarrying;
     }
@@ -130,6 +144,7 @@ public class Character : MonoBehaviour
         carriedPickup.DroppedDown();
 
         //release the gameobject
+        carriedPickup.transform.localPosition = new Vector2(0f, 0f);
         carriedPickup.transform.SetParent(null, true);
 
         speed = originalSpeed; //restore full speed
@@ -225,6 +240,15 @@ public class Character : MonoBehaviour
         {
             intersectedPickup = coll.transform.parent.GetComponent<PickupObject>();
         }
+
+        //Stepping on a homebox
+        if(coll.gameObject.CompareTag("HomeBox"))
+        {
+            if(coll.transform.parent.GetComponent<HomeBox>().playerId == playerId)
+            {
+                intersectedHomeBox = coll.transform.parent.GetComponent<HomeBox>();
+            }
+        }
     }
 
     private void OnTriggerExit2D(Collider2D coll)
@@ -235,6 +259,15 @@ public class Character : MonoBehaviour
             if(coll.transform.parent.GetComponent<PickupObject>() == intersectedPickup)
             {
                 intersectedPickup = null;
+            }
+        }
+
+        //Stepping away from a homebox
+        if(coll.gameObject.CompareTag("HomeBox"))
+        {
+            if(coll.transform.parent.GetComponent<HomeBox>().playerId == playerId)
+            {
+                intersectedHomeBox = null;
             }
         }
     }

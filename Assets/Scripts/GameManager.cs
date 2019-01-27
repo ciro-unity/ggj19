@@ -42,10 +42,6 @@ public class GameManager : Singleton<GameManager>
                     if(c.playMode == Character.PlayMode.Action)
                     {
                         actionController.UpdateCharacter(c);
-                        
-                        //TEST
-                        if(GameInputManager.Instance.ReadPlayerConfirmButton(c.playerId))
-                            StartTetrisMode(c.playerId);
                     }
                     else
                     {
@@ -60,17 +56,20 @@ public class GameManager : Singleton<GameManager>
         }
     }
 
-    public void StartTetrisMode(int playerId)
+    public void StartTetrisMode(int playerId, GameObject tetrisPiecePrefab)
     {
-        characters[playerId].StartTetrisMode();
         float xOffset = (playerId == 0) ? -35f : 35f;
         tetrisControllers[playerId].transform.DOMoveX(xOffset, .3f).SetEase(Ease.InOutBack);
+        tetrisControllers[playerId].StartTetrisMode(tetrisPiecePrefab);
+        
+        characters[playerId].StartTetrisMode();
     }
 
     public void EndTetrisMode(int playerId)
     {
-        characters[playerId].StartActionMode();
         float xOffset = (playerId == 0) ? -55f : 55f;
         tetrisControllers[playerId].transform.DOMoveX(xOffset, .3f).SetEase(Ease.InOutBack);
+        
+        characters[playerId].StartActionMode();
     }
 }
