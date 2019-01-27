@@ -51,20 +51,34 @@ public class Character : MonoBehaviour
     private float originalSpeed;
     private float speedReductionWhenCarrying = .8f;
 
-    private int hashedWalking, hashedDash, hashedEndSpecial, hashedHorizontal, hashedVertical;
+    private int hashedDodge, hashedDash, hashedEndSpecial, hashedHorizontal, hashedVertical;
 
     private void Awake()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
         animator = GetComponentInChildren<Animator>();
 
-        hashedWalking = Animator.StringToHash("Walking");
+        hashedDodge = Animator.StringToHash("Dodge");
         hashedDash = Animator.StringToHash("Dash");
         hashedEndSpecial = Animator.StringToHash("EndSpecial");
         hashedHorizontal = Animator.StringToHash("Horizontal");
         hashedVertical = Animator.StringToHash("Vertical");
 
         originalSpeed = speed;
+    }
+
+    //------------------- Modes
+    public void StartTetrisMode()
+    {
+        playMode = PlayMode.Tetris;
+        Move(Vector2.zero);
+        
+        //TODO: handle case when Tetris mode starts while dodging/dashing
+    }
+
+    public void StartActionMode()
+    {
+        playMode = PlayMode.Action;
     }
 
     //Called on FixedUpdate by the GameManager
@@ -105,7 +119,7 @@ public class Character : MonoBehaviour
 
         //parent and carry animation
         carriedPickup.transform.SetParent(this.transform, true);
-        carriedPickup.transform.localPosition = new Vector2(0f, 2f);
+        carriedPickup.transform.localPosition = new Vector2(0f, 3f);
 
         speed = originalSpeed * speedReductionWhenCarrying;
     }
@@ -169,7 +183,7 @@ public class Character : MonoBehaviour
     private IEnumerator EndDodge()
     {
         charState = CharacterState.Dodging;
-        //animator.SetTrigger(hashedDash); //TODO: needs to be dodge
+        animator.SetTrigger(hashedDodge);
         rigidbody2D.AddForce(inputVector.normalized * dodgeSpeed, ForceMode2D.Impulse);
         gameObject.layer = LayerMask.NameToLayer("DodgingCharacters");
 

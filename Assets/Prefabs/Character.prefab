@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1065387491207713900}
   - component: {fileID: 1065387491207713890}
   - component: {fileID: 5627335561666242699}
+  - component: {fileID: 6515330517875271153}
   m_Layer: 8
   m_Name: Character
   m_TagString: Player
@@ -50,13 +51,13 @@ MonoBehaviour:
   playerId: 0
   playMode: 0
   charState: 0
-  speed: 20
-  dashSpeed: 120
-  dodgeSpeed: 100
+  speed: 10
+  dashSpeed: 100
+  dodgeSpeed: 80
   dashDodgeSpeedTreshold: 0.2
-  dashPushStrength: 150
-  endDashDelay: 1
-  endDodgeDelay: 1
+  dashPushStrength: 130
+  endDashDelay: 0.8
+  endDodgeDelay: 0.7
   endDizzyDelay: 1
 --- !u!70 &1065387491207713900
 CapsuleCollider2D:
@@ -106,6 +107,22 @@ SortingGroup:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!70 &6515330517875271153
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1065387491207713902}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.07}
+  m_Size: {x: 2.7, y: 4.46}
+  m_Direction: 0
 --- !u!1 &1065387491752612352
 GameObject:
   m_ObjectHideFlags: 0
