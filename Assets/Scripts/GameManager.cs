@@ -17,6 +17,19 @@ public class GameManager : Singleton<GameManager>
     
     public ActionController actionController;
 
+    private void Awake()
+    {
+        foreach(Character c in characters)
+        {
+            actionController.SetupListeners(c);
+        }
+    }
+
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
         switch(gameState)
@@ -31,7 +44,7 @@ public class GameManager : Singleton<GameManager>
                     else
                     {
                         //TODO: add Tetris Controller stuff
-                        
+
                     }
                 }
             break;
