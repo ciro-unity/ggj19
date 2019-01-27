@@ -175,6 +175,9 @@ MonoBehaviour:
       - _enabled: 1
         _categoryId: 0
         _layoutId: 0
+      - _enabled: 0
+        _categoryId: 1
+        _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps:
       - _enabled: 1
@@ -195,6 +198,9 @@ MonoBehaviour:
       _defaultJoystickMaps:
       - _enabled: 1
         _categoryId: 0
+        _layoutId: 0
+      - _enabled: 1
+        _categoryId: 1
         _layoutId: 0
       _defaultMouseMaps: []
       _defaultKeyboardMaps:

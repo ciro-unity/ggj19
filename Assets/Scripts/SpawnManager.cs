@@ -57,8 +57,9 @@ public class SpawnManager : Singleton<SpawnManager>
 					//Instantiate and move
 					GameObject newPrefab = Instantiate<GameObject>(prefabs[whichPrefab]);
 					newPrefab.transform.position = spawnPoints[objectSlot].position;
+					float initialScale = newPrefab.transform.localScale.x;
 					newPrefab.transform.localScale = Vector3.one * 0.01f;
-					newPrefab.transform.DOScale(Vector3.one, .5f).SetEase(Ease.OutElastic);
+					newPrefab.transform.DOScale(Vector3.one * initialScale, .5f).SetEase(Ease.OutElastic);
 					
 					PickupObject newPickup = newPrefab.GetComponent<PickupObject>();
 					objectRefs[objectSlot] = newPickup;
