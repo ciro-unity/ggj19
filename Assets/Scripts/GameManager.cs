@@ -30,7 +30,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        RespawnCharacter(1);
+        RespawnCharacter(0);
     }
 
     private void Update()
