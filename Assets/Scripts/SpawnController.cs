@@ -13,6 +13,7 @@ public class SpawnController : MonoBehaviour
 
     public void SpawnBlock(Transform tetrisBlock)
     {
-        Instantiate(tetrisBlock, transform.position, Quaternion.identity);
+        Transform newPiece = Instantiate<Transform>(tetrisBlock, transform.position, Quaternion.identity);
+        newPiece.SetParent(this.transform);
     }
 }
