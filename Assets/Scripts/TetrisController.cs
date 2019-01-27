@@ -8,6 +8,7 @@ public class TetrisController : MonoBehaviour
     private GridManager gridManager;
     private Transform tetrisBlock;
     public Transform spawn;
+    Vector2Int position2D;
 
     private bool isRunning = false;
 
@@ -19,17 +20,19 @@ public class TetrisController : MonoBehaviour
 
     public void StartTetrisMode(GameObject piece)
     {
+        isRunning = true;
         tetrisBlock = SpawnBlock(piece.transform);
+
+        position2D = ConvertV3toV2Int(tetrisBlock.transform.parent.localPosition);
+
         tetrisPiece = tetrisBlock.GetComponent<TetrisPiece>();
         GameInputManager.Instance.SetPlayerInputMode(playerId, 1);
-
-        isRunning = true;
     }
 
-    // Update is called once per frame
+    //Update is called once per frame
     private void Update()
     {
-        if(!isRunning)
+        if (!isRunning)
             return;
 
 
@@ -37,7 +40,7 @@ public class TetrisController : MonoBehaviour
         //Gets the state rotation of the piece grid
         PieceGrid pieceGrid = tetrisPiece.stateGrids[tetrisPiece.currentState];
 
-        Vector2Int position2D = ConvertV3toV2Int(tetrisBlock.transform.localPosition);
+        Debug.Log("position2D " + position2D);
         //Blocks move down by pressing the down key but also overtime
         if (inputVector.y == -1 || Time.time - fallCounter >= 1)
         {
@@ -49,6 +52,7 @@ public class TetrisController : MonoBehaviour
                 Debug.Log("IsValid");
                 //As long as the movement is valid, we increment the position
                 tetrisBlock.transform.localPosition += new Vector3(0, -1, 0);
+                position2D += new Vector2Int(0, -1);
             }
             else
             {
@@ -63,15 +67,18 @@ public class TetrisController : MonoBehaviour
         else if (inputVector.x == 1)
         {
             Debug.Log("Move Right");
+            Debug.Log("Move Right before " + position2D);
             // Modify position
-            MoveTetrisBlockSideways(pieceGrid, position2D, new Vector3(1, 0, 0));
+            position2D = MoveTetrisBlockSideways(pieceGrid, position2D, new Vector3(1, 0, 0));
+
+            Debug.Log("Move Right after " + position2D);
         }
 
         else if (inputVector.x == -1)
         {
             Debug.Log("Move left");
             // Modify position
-            MoveTetrisBlockSideways(pieceGrid, position2D, new Vector3(-1, 0, 0));
+            position2D = MoveTetrisBlockSideways(pieceGrid, position2D, new Vector3(-1, 0, 0));
         }
 
         else if (inputVector.y == 1)
@@ -82,12 +89,12 @@ public class TetrisController : MonoBehaviour
                 Debug.Log("IsValid");
                 tetrisBlock.transform.Rotate(0, 0, 90);
 
-                if (tetrisPiece.currentState == tetrisPiece.stateGrids.Length -1)
+                if (tetrisPiece.currentState == tetrisPiece.stateGrids.Length - 1)
                 {
                     Debug.Log("Current state == length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
                     tetrisPiece.currentState = 0;
                 }
-                else if (tetrisPiece.currentState < tetrisPiece.stateGrids.Length -1)
+                else if (tetrisPiece.currentState < tetrisPiece.stateGrids.Length - 1)
                 {
                     Debug.Log("Current state < length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
                     tetrisPiece.currentState++;
@@ -97,7 +104,7 @@ public class TetrisController : MonoBehaviour
             {
                 Debug.Log("isNotValid");
             }
-            
+
         }
 
     }
@@ -115,13 +122,13 @@ public class TetrisController : MonoBehaviour
 
     public Transform SpawnBlock(Transform tetrisBlock)
     {
-        Transform newPiece = Instantiate<Transform>(tetrisBlock, spawn.transform.localPosition, Quaternion.identity);
-        newPiece.SetParent(spawn.transform);
+        Transform newPiece = Instantiate<Transform>(tetrisBlock);
+        newPiece.SetParent(spawn.transform, false);
 
         return newPiece;
     }
 
-    private void MoveTetrisBlockSideways(PieceGrid pieceGrid, Vector2Int position2D, Vector3 moveDirection)
+    private Vector2Int MoveTetrisBlockSideways(PieceGrid pieceGrid, Vector2Int position2D, Vector3 moveDirection)
     {
         // Modify position
         position2D.x += (int)moveDirection.x;
@@ -131,18 +138,25 @@ public class TetrisController : MonoBehaviour
             Debug.Log("IsValid");
             //As long as the movement is valid, we increment the position
             tetrisBlock.transform.localPosition += moveDirection;
+
+             //position2D += new Vector2Int((int)moveDirection.x, (int)moveDirection.y);
         }
         else
         {
             Debug.Log("isNotValid");
+
+            position2D.x -= (int)moveDirection.x;
+            position2D.y -= (int)moveDirection.y;
             //We update the grid once we reach an obstacle
-            tetrisBlock.transform.localPosition = tetrisBlock.transform.localPosition;
         }
+
+        return position2D;
     }
 
     private void EndTetrisMode()
     {
         isRunning = false;
+        GameInputManager.Instance.SetPlayerInputMode(playerId, 0);
         GameManager.Instance.EndTetrisMode(playerId);
     }
 }

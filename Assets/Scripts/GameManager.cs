@@ -60,7 +60,7 @@ public class GameManager : Singleton<GameManager>
     public void StartTetrisMode(int playerId, GameObject tetrisPiecePrefab)
     {
         float xOffset = (playerId == 0) ? -35f : 35f;
-        tetrisControllers[playerId].transform.DOMoveX(xOffset, .3f).SetEase(Ease.InOutBack);
+        tetrisControllers[playerId].transform.parent.DOMoveX(xOffset, .3f).SetEase(Ease.InOutBack);
         tetrisControllers[playerId].StartTetrisMode(tetrisPiecePrefab);
         
         characters[playerId].StartTetrisMode();
@@ -69,7 +69,7 @@ public class GameManager : Singleton<GameManager>
     public void EndTetrisMode(int playerId)
     {
         float xOffset = (playerId == 0) ? -55f : 55f;
-        tetrisControllers[playerId].transform.DOMoveX(xOffset, .3f).SetEase(Ease.InOutBack);
+        tetrisControllers[playerId].transform.parent.DOMoveX(xOffset, .3f).SetEase(Ease.InOutBack);
         
         characters[playerId].StartActionMode();
     }
