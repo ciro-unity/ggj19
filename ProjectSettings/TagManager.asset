@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Pickup
   - HomeBox
+  - MovingPlatform
   layers:
   - Default
   - TransparentFX
