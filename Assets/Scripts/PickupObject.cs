@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class PickupObject : MonoBehaviour
 {
+    [HideInInspector]
     public Character carrier;
     public GameObject tetrisPiecePrefab;
 

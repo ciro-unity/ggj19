@@ -16,6 +16,11 @@ public class TetrisController : MonoBehaviour
     void Awake()
     {
         gridManager = GetComponent<GridManager>();
+
+        //move a bit left and a bit down, to be centered in the parent
+        transform.Translate(-(float)GridManager.gridWidth * .5f  * transform.parent.localScale.x,
+                            -(float)GridManager.gridHeight * .5f * transform.parent.localScale.y,
+                            0f, Space.Self);
     }
 
     public void StartTetrisMode(GameObject piece)

@@ -42,8 +42,21 @@ public class Character : MonoBehaviour
     public float endDodgeDelay = 1f;
     [Tooltip("When getting hit by a dash")]
     public float endDizzyDelay = 1f;
-    
-    //public float walkDecayTreshold = .7f, walkDecayAmount = .5f;
+
+    [Header("Sounds")]
+    [FMODUnity.EventRef]
+    public string dashEvent;
+    [FMODUnity.EventRef]
+    public string dodgeEvent;
+    [FMODUnity.EventRef]
+    public string bumpEvent;
+    [FMODUnity.EventRef]
+    public string pickupObjectSFXEvent;
+    [FMODUnity.EventRef]
+    public string dropObjectSFXEvent;
+
+    // private FMOD.Studio.EventInstance dashSound, dodgeSound;
+    // public float walkDecayTreshold = .7f, walkDecayAmount = .5f;
 
     private Rigidbody2D rigidbody2D;
     private Animator animator;
@@ -70,6 +83,10 @@ public class Character : MonoBehaviour
         hashedVertical = Animator.StringToHash("Vertical");
 
         originalSpeed = speed;
+
+        //Sounds
+        // dashSound = FMODUnity.RuntimeManager.CreateInstance(dashEvent);
+        // dodgeSound = FMODUnity.RuntimeManager.CreateInstance(dodgeEvent);
     }
 
     //------------------- Modes
@@ -160,6 +177,8 @@ public class Character : MonoBehaviour
         carriedPickup.transform.SetParent(this.transform, true);
         carriedPickup.transform.DOLocalMove(new Vector2(0f, 3f), .2f);
 
+        FMODUnity.RuntimeManager.PlayOneShot(pickupObjectSFXEvent, transform.position);
+
         speed = originalSpeed * speedReductionWhenCarrying;
     }
 
@@ -171,6 +190,8 @@ public class Character : MonoBehaviour
         //release the gameobject
         carriedPickup.transform.localPosition = new Vector2(0f, 0f);
         carriedPickup.transform.SetParent(null, true);
+
+        FMODUnity.RuntimeManager.PlayOneShot(dropObjectSFXEvent, transform.position);
 
         speed = originalSpeed; //restore full speed
         carriedPickup = null;
@@ -209,6 +230,7 @@ public class Character : MonoBehaviour
         charState = CharacterState.Dashing;
         animator.SetTrigger(hashedDash);
         rigidbody2D.AddForce(inputVector.normalized * dashSpeed, ForceMode2D.Impulse);
+        FMODUnity.RuntimeManager.PlayOneShot(dashEvent, transform.position);
 
         yield return new WaitForSeconds(endDashDelay);
 
@@ -226,6 +248,7 @@ public class Character : MonoBehaviour
         animator.SetTrigger(hashedDodge);
         rigidbody2D.AddForce(inputVector.normalized * dodgeSpeed, ForceMode2D.Impulse);
         gameObject.layer = LayerMask.NameToLayer("DodgingCharacters");
+        FMODUnity.RuntimeManager.PlayOneShot(dodgeEvent, transform.position);
 
         yield return new WaitForSeconds(endDodgeDelay);
 
@@ -245,12 +268,14 @@ public class Character : MonoBehaviour
     //--------------------- Collision detection
     private void OnCollisionEnter2D(Collision2D coll)
     {
-        //Dashing into other players
+        //Dashing into objects or other players
         if(charState == CharacterState.Dashing)
         {
+            FMODUnity.RuntimeManager.PlayOneShot(bumpEvent, transform.position); //play bump sound
+
             if(coll.gameObject.CompareTag("Player"))
             {
-                //Collision happened
+                //Collision happened with another player
                 Character otherCharacter = coll.gameObject.GetComponent<Character>();
                 rigidbody2D.velocity = Vector2.zero;
                 DashLanded.Invoke(inputVector * dashPushStrength, otherCharacter); //notifies the ActionController

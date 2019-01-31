@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5627335561666242699}
   - component: {fileID: 6515330517875271153}
   m_Layer: 8
-  m_Name: Character
+  m_Name: P0_Cow
   m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -53,12 +53,17 @@ MonoBehaviour:
   charState: 0
   speed: 10
   dashSpeed: 100
-  dodgeSpeed: 80
+  dodgeSpeed: 50
   dashDodgeSpeedTreshold: 0.2
   dashPushStrength: 130
   endDashDelay: 0.8
   endDodgeDelay: 0.7
   endDizzyDelay: 1
+  dashEvent: event:/SoundDesign/Dash
+  dodgeEvent: event:/SoundDesign/Dodge
+  bumpEvent: event:/SoundDesign/Bumpe
+  pickupObjectSFXEvent: event:/SoundDesign/TakeBlock
+  dropObjectSFXEvent: event:/SoundDesign/PutBlock
 --- !u!70 &1065387491207713900
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -135,7 +140,7 @@ GameObject:
   - component: {fileID: 1065387491752612358}
   - component: {fileID: 2563658469975212057}
   m_Layer: 0
-  m_Name: Body
+  m_Name: P0Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
