@@ -9,6 +9,7 @@ public class TetrisController : MonoBehaviour
     private Transform tetrisBlock;
     public Transform spawn;
     Vector2Int position2D;
+    public GameObject testBlock;
 
     private bool isRunning = false;
 
@@ -23,10 +24,11 @@ public class TetrisController : MonoBehaviour
         isRunning = true;
         tetrisBlock = SpawnBlock(piece.transform);
 
-        position2D = ConvertV3toV2Int(tetrisBlock.transform.parent.localPosition);
-
+        position2D = ConvertV3toV2Int(spawn.localPosition);
         tetrisPiece = tetrisBlock.GetComponent<TetrisPiece>();
         GameInputManager.Instance.SetPlayerInputMode(playerId, 1);
+        //Set the local position to be 0, but be sure to set the pivot correctly in the 2D Object
+        tetrisBlock.transform.localPosition = new Vector3(0, 0, 0);
     }
 
     //Update is called once per frame
@@ -39,26 +41,30 @@ public class TetrisController : MonoBehaviour
         Vector2Int inputVector = GameInputManager.Instance.ReadPlayerTetrisPhaseMovement(playerId);
         //Gets the state rotation of the piece grid
         PieceGrid pieceGrid = tetrisPiece.stateGrids[tetrisPiece.currentState];
-
-        Debug.Log("position2D " + position2D);
         //Blocks move down by pressing the down key but also overtime
         if (inputVector.y == -1 || Time.time - fallCounter >= 1)
         {
             Debug.Log("Move down");
 
             // Modify position
+            Debug.Log("position2D" + position2D);
+            Debug.Log("tetrisblock.locqlPosition" + tetrisBlock.transform.localPosition);
+
+            position2D += new Vector2Int(0, -1);
             if (gridManager.IsValidPosition(pieceGrid, position2D))
             {
                 Debug.Log("IsValid");
                 //As long as the movement is valid, we increment the position
                 tetrisBlock.transform.localPosition += new Vector3(0, -1, 0);
-                position2D += new Vector2Int(0, -1);
             }
             else
             {
                 Debug.Log("isNotValid");
                 //We update the grid once we reach an obstacle
+                Debug.Log("position2D before" + position2D);
                 gridManager.UpdateGrid(pieceGrid, position2D);
+                Debug.Log("position2D after" + position2D);
+                position2D = ConvertV3toV2Int(spawn.localPosition);
                 EndTetrisMode();
             }
             fallCounter = Time.time;

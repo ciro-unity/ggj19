@@ -31,11 +31,12 @@ public class GridManager : MonoBehaviour
     {
         foreach (Vector2 block in pieceGrid.blockPositions)
         {
+            Debug.Log(position);
             Debug.Log("isInsideGrid function, block : " + block);
             Debug.Log(position.y + (int)block.y);
             Debug.Log(" < 0 ");
             if (position.x + (int)block.x >= gridWidth || position.x + (int)block.x < 0
-                || position.y + (int)block.y <= 0 || position.y + (int)block.y >= gridHeight)
+                || position.y + (int)block.y < 0)
             {
                 Debug.Log("Is not inside grid");
                 Debug.Log(position.y + (int)block.y <= 0);
@@ -49,8 +50,6 @@ public class GridManager : MonoBehaviour
     {
         if (!IsInsideGrid(pieceGrid, position))
         {
-            //Debug.Log("Is not inside grid");
-            Debug.Log(position);
             return false;
         }
 
@@ -58,6 +57,7 @@ public class GridManager : MonoBehaviour
         {
             int vx = position.x + (int)(block.x);
             int vy = position.y + (int)(block.y);
+            Debug.Log("Is inside grid and grid is" + grid[vx, vy]);
             if (grid[vx, vy] == true)
             {
                 return false;
@@ -76,8 +76,10 @@ public class GridManager : MonoBehaviour
             Debug.Log("Add New");
             Debug.Log(vx);
             Debug.Log(vy);
-            Debug.Log("grid [" + vx + "," + vy + "] is : " + grid[vx, vy]);
-            grid[vx, vy] = true;
+            Debug.Log(IsInsideGrid(pieceGrid, position));
+            grid[vx, vy+1] = true;
+
+            Debug.Log("after grid [" + vx + "," + vy + "] is : " + grid[vx, vy+1]);
         }
     }
 }
