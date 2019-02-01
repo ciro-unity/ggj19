@@ -7,39 +7,13 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0000000042571708 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000000048528D88 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
-[LOG] SoundI::release                          : BlockMusic_V1 (000000004E47ED18)
-[LOG] SoundI::release                          :     BlockMusic_V1 (0000000056A4B678)
-[LOG] SoundI::release                          :     BlockMusic_V1 (000000004E47EEC8)
-[LOG] SoundI::release                          :  (0000000045D911E8)
-[LOG] SoundI::release                          :     JingleWin_V1 (0000000056A4D6F8)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
 [LOG] Manager::readBank                        : fileversion = 103, compatVersion = 99 (oldest = 44, newest = 103)
@@ -54,6 +28,4 @@
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : Closed.

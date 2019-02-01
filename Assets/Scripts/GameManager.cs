@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
+using Cinemachine;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -19,6 +20,7 @@ public class GameManager : Singleton<GameManager>
     public ActionController actionController;
     public TetrisController[] tetrisControllers;
     public Transform[] characterSpawnPoints;
+    public CinemachineTargetGroup cinemachineTargetGroup;
 
     private void Awake()
     {
@@ -30,7 +32,7 @@ public class GameManager : Singleton<GameManager>
 
     private void Start()
     {
-        RespawnCharacter(0);
+        
     }
 
     private void Update()
@@ -59,7 +61,8 @@ public class GameManager : Singleton<GameManager>
 
     public void StartTetrisMode(int playerId, GameObject tetrisPiecePrefab)
     {
-        float xOffset = (playerId == 0) ? -35 : 35f;
+        float xOffset = (playerId == 0) ? -25 : 25f;
+        cinemachineTargetGroup.m_Targets[playerId].weight = .3f;
         tetrisControllers[playerId].transform.parent.DOMoveX(xOffset, .3f).SetEase(Ease.InOutBack);
         tetrisControllers[playerId].StartTetrisMode(tetrisPiecePrefab);
         
@@ -69,6 +72,7 @@ public class GameManager : Singleton<GameManager>
     public void EndTetrisMode(int playerId)
     {
         float xOffset = (playerId == 0) ? -70f : 70f;
+        cinemachineTargetGroup.m_Targets[playerId].weight = 1f;
         tetrisControllers[playerId].transform.parent.DOMoveX(xOffset, .3f).SetEase(Ease.InOutBack);
         
         characters[playerId].StartActionMode();

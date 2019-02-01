@@ -76,7 +76,6 @@ public class GridManager : MonoBehaviour
             Debug.Log("Add New");
             Debug.Log(vx);
             Debug.Log(vy);
-            Debug.Log(IsInsideGrid(pieceGrid, position));
             grid[vx, vy+1] = true;
 
             Debug.Log("after grid [" + vx + "," + vy + "] is : " + grid[vx, vy+1]);

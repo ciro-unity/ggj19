@@ -17,6 +17,11 @@ public class TetrisController : MonoBehaviour
     void Awake()
     {
         gridManager = GetComponent<GridManager>();
+
+        //move a bit left and a bit down, to be centered in the parent
+        transform.Translate(-(float)GridManager.gridWidth * .5f  * transform.parent.localScale.x,
+                            -(float)GridManager.gridHeight * .5f * transform.parent.localScale.y,
+                            0f, Space.Self);
     }
 
     public void StartTetrisMode(GameObject piece)
@@ -90,25 +95,39 @@ public class TetrisController : MonoBehaviour
         else if (inputVector.y == 1)
         {
             // Modify rotation
+            if (tetrisPiece.currentState == tetrisPiece.stateGrids.Length - 1)
+            {
+                Debug.Log("Current state == length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
+                tetrisPiece.currentState = 0;
+            }
+            else if (tetrisPiece.currentState < tetrisPiece.stateGrids.Length - 1)
+            {
+                Debug.Log("Current state < length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
+                tetrisPiece.currentState++;
+            }
+            //Update which piece grid is used
+            pieceGrid = tetrisPiece.stateGrids[tetrisPiece.currentState];
+
             if (gridManager.IsValidPosition(pieceGrid, position2D))
             {
                 Debug.Log("IsValid");
                 tetrisBlock.transform.Rotate(0, 0, 90);
 
-                if (tetrisPiece.currentState == tetrisPiece.stateGrids.Length - 1)
-                {
-                    Debug.Log("Current state == length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
-                    tetrisPiece.currentState = 0;
-                }
-                else if (tetrisPiece.currentState < tetrisPiece.stateGrids.Length - 1)
-                {
-                    Debug.Log("Current state < length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
-                    tetrisPiece.currentState++;
-                }
+                //if (tetrisPiece.currentState == tetrisPiece.stateGrids.Length - 1)
+                //{
+                //    Debug.Log("Current state == length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
+                //    tetrisPiece.currentState = 0;
+                //}
+                //else if (tetrisPiece.currentState < tetrisPiece.stateGrids.Length - 1)
+                //{
+                //    Debug.Log("Current state < length" + tetrisPiece.currentState + " " + tetrisPiece.stateGrids.Length);
+                //    tetrisPiece.currentState++;
+                //}
             }
             else
             {
                 Debug.Log("isNotValid");
+                tetrisPiece.currentState--;
             }
 
         }
